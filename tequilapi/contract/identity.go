@@ -130,6 +130,7 @@ type IdentityRegisterRequest struct {
 	ReferralToken *string `json:"token,omitempty"`
 }
 
+// Validate validates fields in request
 func (irr *IdentityRegisterRequest) Validate() *validation.FieldErrorMap {
 	errors := validation.NewErrorMap()
 
