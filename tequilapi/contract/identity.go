@@ -134,8 +134,8 @@ type IdentityRegisterRequest struct {
 func (irr *IdentityRegisterRequest) Validate() *validation.FieldErrorMap {
 	errors := validation.NewErrorMap()
 
-	if okAddress := common.IsHexAddress(irr.Beneficiary); irr.Beneficiary != "" && !okAddress {
-		errors.ForField("beneficiary").Invalid(irr.Beneficiary+" - is not a valid ethereum wallet address")
+	if irr.Beneficiary != "" && !common.IsHexAddress(irr.Beneficiary) {
+		errors.ForField("beneficiary").Invalid(irr.Beneficiary + " - is not a valid ethereum wallet address")
 	}
 
 	if irr.ReferralToken == nil {
